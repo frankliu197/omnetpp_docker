@@ -1,0 +1,34 @@
+!SESSION 2018-05-15 12:40:37.193 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.omnetpp.main 1 0 2018-05-15 12:40:53.699
+!MESSAGE OMNeT++ IDE 4.6.0.141202-f785492 started.
+
+!ENTRY org.omnetpp.main 4 0 2018-05-15 12:40:54.180
+!MESSAGE Cannot download page from http://omnetpp.org/ide/omnetpp/versioncheck/?v=4.6.0.141202-f785492&d=201805151240&o=linux.x86_64
+!STACK 0
+java.io.IOException: Server returned HTTP response code: 403 for URL: http://omnetpp.org/ide/omnetpp/versioncheck/?v=4.6.0.141202-f785492&d=201805151240&o=linux.x86_64
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(HttpURLConnection.java:1926)
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(HttpURLConnection.java:1921)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.net.www.protocol.http.HttpURLConnection.getChainedException(HttpURLConnection.java:1920)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1490)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1474)
+	at org.omnetpp.ide.VersionChecker.getWebPage(VersionChecker.java:203)
+	at org.omnetpp.ide.VersionChecker$1.run(VersionChecker.java:72)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: Server returned HTTP response code: 403 for URL: http://omnetpp.org/ide/omnetpp/versioncheck/?v=4.6.0.141202-f785492&d=201805151240&o=linux.x86_64
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1876)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1474)
+	at sun.net.www.protocol.http.HttpURLConnection.getHeaderField(HttpURLConnection.java:2982)
+	at java.net.URLConnection.getContentEncoding(URLConnection.java:523)
+	at org.omnetpp.ide.VersionChecker.getWebPage(VersionChecker.java:202)
+	... 2 more

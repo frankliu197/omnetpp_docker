@@ -4,4 +4,4 @@ To install on your computer, execute:
 sudo ./configure
 
 To install with docker, execute:
-sudo docker build -t \<name of your project\> .
+docker build -t \<name of your project\> .

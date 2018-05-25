@@ -34,5 +34,6 @@ CMD ["omnetpp"]
 #3. uses /bin/sh interpreter thus sed and expr commands are not available and cannot be installed with apt-get. I'm using xvfb-run instead
 #4. If there is any command that require user input, docker either freezes or gives you an error
 #5. the interpreters bin/bash seems to not exist (not sure)
+#6. executed with sudo automatically but does not recognize the sudo command
 
 #I shall now figure out how to run docker after commiting an image and add project files to this docker image

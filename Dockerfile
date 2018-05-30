@@ -15,18 +15,18 @@ RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true
 #install dependencies
 RUN apt-get install -y oracle-java8-installer
 RUN apt-get install -y bison flex gcc g++ make tk-dev xvfb
+RUN apt-get install -y xterm
+RUN apt-get install -y libswt-gtk-3-jni libswt-gtk-3-java
 
 #copy everything in this folder to /omnet_workspace in virtual machine
-WORKDIR /omnet_workspace
-ADD . /omnet_workspace
+WORKDIR /home/xterm
+ADD . /home/xterm
 
 #install omnet
-ENV PATH "$PATH:/omnet_workspace/omnetpp-4.6/bin"
+ENV PATH "$PATH:/home/xterm/omnetpp-4.6/bin"
 RUN cd omnetpp-4.6 && xvfb-run ./configure && make
 
 #run omnet
-CMD ["omnetpp"]
-
 #Good stuff about docker containers that I figured out:
 #1. Each command is executed in a separate container, similar to this ./Dockerfile.sh (if it were an sh) command were executed between every line
 #   Thus cd omnetpp-4.6 is useless, as after that line, it refreshes to the original directory

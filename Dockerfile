@@ -1,27 +1,61 @@
+# By: frankliu197 
+# 
+# This creates the docker image for omnetpp4.6
+# If you don't need a docker image with the omnetpp GUI, you can delete all blocks of code
+# that has been commented with a double hashtag (##)
+# 
+# Dependencies: docker
+# 
+# To use this program, run:
+#   docker build -t <name of your image> .
+#   docker run docker run -it --rm -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix <name of your image>
+#   omnetpp
+# 
+# You will install these dependencies:
+#   Used to install other required software: software-properties-common
+#   Used to run and install omnetpp: blt-dev bison flex gcc g++ make tk-dev xvfb
+#   Used for the GUI of omnetpp: xterm java8
+#   Dependencies of java8: libswt-gtk-3-jni libswt-gtk-3-java
+#
+
+#Use ubuntu base image
 FROM ubuntu
 
-#get update, install add-apt-repository to get java repository
+#update repositories
 RUN apt-get update 
+
+##Install apt-get-repository
 RUN apt-get install -y software-properties-common
+
+##add java's repository
 RUN add-apt-repository -y ppa:webupd8team/java
 RUN apt-get update
 
-#the variable is used to prevent blt-dev from asking for geographic location
+#install blt-dev. This dependency will ask for your geographic location thus ENV=noninteractive
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y blt-dev 
 
-#Used to automatically accept java8 license agreement
+##Install java8, the first line is used to automatically accept java8 license agreement
 RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
-
-#install dependencies
 RUN apt-get install -y oracle-java8-installer
-RUN apt-get install -y bison flex gcc g++ make tk-dev xvfb
-RUN apt-get install -y xterm
-RUN apt-get install -y libswt-gtk-3-jni libswt-gtk-3-java
 
-#copy everything in this folder to /omnet_workspace in virtual machine
-WORKDIR /home/xterm
-ADD . /home/xterm
+#install other required dependencies
+RUN apt-get install -y bison flex gcc g++ make tk-dev xvfb
+
+##install other GUI related dependencies
+RUN apt-get install -y xterm libswt-gtk-3-jni libswt-gtk-3-java
+
+#add everything in this folder to the /home/xterm work directory in the virtual machine
+RUN WD=/home/xterm
+WORKDIR $WD
+ADD . $WD
+
+###For an IBM Power 8 Processor, you will need to uncomment the next few lines as well
+#RUN export LD_LIBRARY_PATH=$WD/omnetpp-4.6/lib:$LD_LIBRARY_PATH
+#RUN export HOSTNAME
+#RUN export HOST
+#ENV CXXFLAGS "-fPIC"
+#ENV CFLAGS "-fPIC"
 
 #install omnet
-ENV PATH "$PATH:/home/xterm/omnetpp-4.6/bin"
+ENV PATH "$PATH:$WD/omnetpp-4.6/bin"
 RUN cd omnetpp-4.6 && xvfb-run ./configure && make

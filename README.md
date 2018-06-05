@@ -1,7 +1,3 @@
-This project is to aid people to install omnetpp4.6, in preparation for a future project
+This file will run omnetpp4.6 in a Docker container.
 
-To install on your computer, execute:
-sudo ./configure
-
-To install with docker, execute:
-docker build -t \<name of your project\> .
+Read the Dockerfile for more details

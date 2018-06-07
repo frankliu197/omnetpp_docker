@@ -8,10 +8,13 @@
 # If you have an IBM processor please read the comment with 3 hashtags
 # 
 # To use this program, run:
-#   docker build -t <name of your image> .
-#   docker run -it --rm -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix <name of your image>
-#   omnetpp
-# 
+#   1.                docker build -t <name of your image> .
+#   2 (With GUI).     docker run -it --rm -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix <name of your image>
+#   2 (Without GUI).  docker run -it <name of your image>
+#   3.                omnetpp
+#   
+# To be able to run omnetpp GUI, you will need to install XQuatz for Mac and Xming for windows 
+#
 # You will install these dependencies:
 #   Used to install other required software: software-properties-common
 #   Used to run and install omnetpp: blt-dev bison flex gcc g++ make tk-dev xvfb

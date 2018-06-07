@@ -2,6 +2,7 @@
 #
 # Startup/unistall omnet script.
 # To start this script run sudo ./configure.sh in the folder that contains the folder omnetpp4-6
+# Note that the unistall script is not used.
 #
 # @author frankliu197
 # 
@@ -13,6 +14,40 @@ message="IMPORTANT: "
 
 #check if sudo was used to execute this program
 sudo -n true || { echo "You need sudo permissions to execute this program"; exit 2; }
+
+lowercase(){
+  echo "$1" | sed "y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/"
+}
+
+#find the operating system type, and set the variables, package manager, and dependencies
+OS=`lowercase \`uname\``
+
+if [ "${OS}" == "windowsnt" ]; then
+  OS=Windows
+  echo "Error: This is for a Linux installation. "
+  exit 101
+elif [ "{$OS}" == "darwin" ]; then
+  OS=Mac
+  echo "Error: This is for a Linux installation. " 
+  exit 102
+elif [ -f /etc/redhat-release ]; then
+  OS=RedHat
+  pm=yum
+  dependencies=(bison flex tcl-devel tk-devel qt-devel libxml2-devel zlib-devel \
+      doxygen graphviz openmpi-devel libpcap-devel)
+elif [ -f /etc/SuSE-release ]; then
+  OS=Mandrake
+  pm=zypper
+  dependencies=(bison flex tcl-devel tk-devel libqt5-qtbase-devel libxml2-devel zlib-devel \
+      doxygen graphviz libwebkitgtk-3_0-0)
+elif [ -f /etc/debian_version ]; then
+  OS=Debian
+  pm=apt-get
+  dependencies=(bison flex qt5-default libqt5opengl5-dev tcl-dev tk-dev libxml2-dev \
+      zlib1g-dev default-jre doxygen graphviz libwebkitgtk-1.0)
+else
+  echo "Please manually install omnetpp" exit 1
+fi
 
 #add path variables
 OMNET=omnetpp-4.6
@@ -26,27 +61,27 @@ test -d "$BIN" || { echo "$BIN folder not found"; exit 3; }
 #Creating an array of dependencies for omnetpp-4.6
 #This array is referenced in install and unistall dependencies
 #To add a new dependency, add its name to this list
-dependencies=(tk-dev blt-dev bison flex)
+#dependencies=(tk-dev blt-dev bison flex)
 
 #Methods to call when installing or unistalling the program
 #The array will be looped through and every element will be called as if it were a method in this script
 install=(install_dependencies add_bin configure_omnet install_message)
-unistall=(uninstall_dependencies remove_bin unistall_message)
+#unistall=(uninstall_dependencies remove_bin unistall_message)
 
 #Set the operation the user choose to either install or unistall,
 #based on the user input, i or u
-read -p 'Would you like to install or unistall omnetpp [i/u]: ' o
-while true; do
-  if [ $o = i ]; then
+#read -p 'Would you like to install or unistall omnetpp [i/u]: ' o
+#while true; do
+#  if [ $o = i ]; then
     option=( "${install[@]}" ) 
-    break
-  elif [ $o = u ]; then
-    option=( "${unistall[@]}" )
-    break
-  else
-    read -p 'Please type in i for install or u for unistall [i/u]: ' o
-  fi
-done
+#    break
+#  elif [ $o = u ]; then
+#    option=( "${unistall[@]}" )
+#    break
+#  else
+#    read -p 'Please type in i for install or u for unistall [i/u]: ' o
+#  fi
+#done
 
 function install_dependencies {
   #Installs all the dependencies in the array dependencies
@@ -54,11 +89,13 @@ function install_dependencies {
   #return: 0
 
   echo Currently excecuting apt-get update...
-
-  #apt-get update will almost always return an error thus set +e to prevent the script from exiting
-  set +e
-  sudo apt-get -qq update -y
-  set -e
+  
+  if [ "{$OS}" == "Debian" ]; then
+    #apt-get update will almost always return an error thus set +e to prevent the script from exiting
+    set +e
+    sudo apt-get -qq update -y
+    set -e
+  fi
 
   #install each dependency in the list and if installed, add the dependency name to ins
   ins=()
@@ -67,7 +104,7 @@ function install_dependencies {
     #checks if the dependency is installed
     if [ -z $(which $dep) ]; then
       echo Currently installing $dep...
-      sudo apt-get -qq install -y $dep
+      sudo $pm -qq install -y $dep
       ins+="$dep"
       echo $dep has been installed
     fi

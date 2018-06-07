@@ -1,0 +1,51 @@
+Installation Instructions for Linux:
+(We will make the package that contains the correct versions of omnet, inet and oversim)
+
+PREREQUISITES
+JDK, version 8 or later
+Perl
+A C/C++ compiler
+
+You can skip steps 2-4 if by using the command sudo . install.sh if you are using MacOS, Debian, RedHat and/or Mandrake distributions.
+However, omnetpp may not be compatible with all versions of linux distributions. See omnetpp-4.6/InstallGuide for all tested Linux distribtions.
+
+GENERAL
+ 1. Extract the installed tar file into a directory of your choice and change into the extracted directory.
+      $ tar xfz file_name
+      $ cd file_name
+     
+ 2. Change into the omnetpp-4.6/bin directory and add it to $PATH.
+    
+    You can temporarily add this directory to your path using:
+      $ export PATH=$PATH:~/omnet_workspace/omnetpp-4.6/bin
+    or permamently add it to path by adding this line into your .bashrc or .bash_profile
+      $ echo -e "\n export PATH:~/omnet_workspace/omnetpp-4.6/bin" >> ~/.bashrc
+    OR
+      $ echo -e "\n export PATH:~/omnet_workspace/omnetpp-4.6/bin" >> ~/.bash_profile
+    You will need to run $ source ~/.bashrc for changes to take effect if you added it to your .bashrc. If you added this line to your .bash_profile you will need to log out and log in again for changes to take effect.
+    
+    If you ran "sudo . configure.sh", this line is added to your ~/.bashrc file
+
+ 3. You need to install several dependencies to use omnet. You will need packages:
+      Ubuntu: bison flex qt5-default libqt5opengl5-dev tcl-dev tk-dev libxml2-dev zlib1g-dev default-jre doxygen graphviz libwebkitgtk-1.0
+      Red-Hat: bison flex tcl-devel tk-devel qt-devel libxml2-devel zlib-devel doxygen graphviz openmpi-devel libpcap-devel
+      Open SUSE: bison flex tcl-devel tk-devel libqt5-qtbase-devel libxml2-devel zlib-devel doxygen graphviz libwebkitgtk-3_0-0
+      
+      To install on Ubuntu, run
+      $ sudo apt-get update
+      $ sudo apt-get install bison flex qt5-default libqt5opengl5-dev tcl-dev tk-dev libxml2-dev zlib1g-dev default-jre doxygen graphviz libwebkitgtk-1.0
+
+ 4. Then install omnet:
+      
+      $ cd omnetpp-4.6
+      $ ./configure
+      $ make
+
+    You can now run omnet from bash using 
+    
+      $ omnetpp
+
+ 5. Create a workplace anywhere (just remember the directory path). Now copy and paste the inetmanet, Oversim and MANETSIP files into your workspace. 
+    Import them into Omnet using File->Import, General->Import Existing Projects Into Workspace.
+
+If you would like to unistall omnetpp later, you can also run sudo . unistall.sh

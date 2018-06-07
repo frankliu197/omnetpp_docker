@@ -5,12 +5,16 @@
 # that has been commented with a double hashtag (##)
 # 
 # Dependencies: docker
+# If you have an IBM processor please read the comment with 3 hashtags
 # 
 # To use this program, run:
-#   docker build -t <name of your image> .
-#   docker run docker run -it --rm -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix <name of your image>
-#   omnetpp
-# 
+#   1.                docker build -t <name of your image> .
+#   2 (With GUI).     docker run -it --rm -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix <name of your image>
+#   2 (Without GUI).  docker run -it <name of your image>
+#   3.                omnetpp
+#   
+# To be able to run omnetpp GUI, you will need to install XQuatz for Mac and Xming for windows 
+#
 # You will install these dependencies:
 #   Used to install other required software: software-properties-common
 #   Used to run and install omnetpp: blt-dev bison flex gcc g++ make tk-dev xvfb
@@ -44,8 +48,9 @@ RUN apt-get install -y bison flex gcc g++ make tk-dev xvfb
 ##install other GUI related dependencies
 RUN apt-get install -y xterm libswt-gtk-3-jni libswt-gtk-3-java
 
-#add everything in this folder to the /home/xterm work directory in the virtual machine
-RUN WD=/home/xterm
+#add everything in this folder to the work directory in the virtual machine. 
+#The work directory can be changed as you like
+ARG WD="/home/user"
 WORKDIR $WD
 ADD . $WD
 

@@ -133,104 +133,104 @@ depend:
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/Allocate.o: Allocate.cc \
   ./QueueingDefs.h \
-  ./ResourcePool.h \
+  ./Job.h \
+  ./Job_m.h \
   ./IResourcePool.h \
-  ./Allocate.h \
+  ./ResourcePool.h \
+  ./Allocate.h
+$O/Classifier.o: Classifier.cc \
+  ./QueueingDefs.h \
+  ./Classifier.h \
+  ./Job.h \
+  ./Job_m.h
+$O/Clone.o: Clone.cc \
+  ./QueueingDefs.h \
+  ./Clone.h \
   ./Job_m.h \
   ./Job.h
-$O/Classifier.o: Classifier.cc \
-  ./Job.h \
-  ./Job_m.h \
-  ./Classifier.h \
-  ./QueueingDefs.h
-$O/Clone.o: Clone.cc \
-  ./Job.h \
-  ./Job_m.h \
-  ./Clone.h \
-  ./QueueingDefs.h
 $O/Deallocate.o: Deallocate.cc \
-  ./QueueingDefs.h \
   ./Deallocate.h \
+  ./QueueingDefs.h \
   ./IResourcePool.h \
   ./ResourcePool.h
 $O/Delay.o: Delay.cc \
   ./QueueingDefs.h \
-  ./Job_m.h \
   ./Job.h \
+  ./Job_m.h \
   ./Delay.h
 $O/Fork.o: Fork.cc \
-  ./Job.h \
-  ./Job_m.h \
   ./QueueingDefs.h \
+  ./Job_m.h \
+  ./Job.h \
   ./Fork.h
 $O/Job.o: Job.cc \
+  ./JobList.h \
   ./Job_m.h \
   ./Job.h \
-  ./JobList.h \
   ./QueueingDefs.h
 $O/JobList.o: JobList.cc \
+  ./QueueingDefs.h \
   ./Job.h \
   ./Job_m.h \
-  ./QueueingDefs.h \
   ./JobList.h
 $O/Job_m.o: Job_m.cc \
   ./QueueingDefs.h \
   ./Job_m.h
 $O/Join.o: Join.cc \
-  ./Job_m.h \
   ./Job.h \
+  ./Job_m.h \
   ./QueueingDefs.h \
   ./Join.h
 $O/Merge.o: Merge.cc \
-  ./QueueingDefs.h \
-  ./Merge.h
+  ./Merge.h \
+  ./QueueingDefs.h
 $O/PassiveQueue.o: PassiveQueue.cc \
-  ./QueueingDefs.h \
+  ./Job_m.h \
+  ./Job.h \
   ./PassiveQueue.h \
-  ./Job.h \
-  ./Job_m.h \
-  ./SelectionStrategies.h \
-  ./IPassiveQueue.h
+  ./QueueingDefs.h \
+  ./IPassiveQueue.h \
+  ./SelectionStrategies.h
 $O/Queue.o: Queue.cc \
-  ./Queue.h \
   ./Job_m.h \
   ./Job.h \
-  ./QueueingDefs.h
+  ./QueueingDefs.h \
+  ./Queue.h
 $O/ResourceBasedQueue.o: ResourceBasedQueue.cc \
-  ./IResourcePool.h \
   ./Job_m.h \
+  ./IResourcePool.h \
   ./Job.h \
-  ./ResourceBasedQueue.h \
-  ./QueueingDefs.h
+  ./QueueingDefs.h \
+  ./ResourceBasedQueue.h
 $O/ResourcePool.o: ResourcePool.cc \
   ./QueueingDefs.h \
-  ./IResourcePool.h \
-  ./ResourcePool.h
+  ./ResourcePool.h \
+  ./IResourcePool.h
 $O/Router.o: Router.cc \
-  ./Router.h \
-  ./QueueingDefs.h
+  ./QueueingDefs.h \
+  ./Router.h
 $O/SelectionStrategies.o: SelectionStrategies.cc \
-  ./SelectionStrategies.h \
-  ./Server.h \
-  ./IPassiveQueue.h \
-  ./QueueingDefs.h \
+  ./PassiveQueue.h \
   ./IServer.h \
-  ./PassiveQueue.h
+  ./QueueingDefs.h \
+  ./IPassiveQueue.h \
+  ./Server.h \
+  ./SelectionStrategies.h
 $O/Server.o: Server.cc \
-  ./QueueingDefs.h \
-  ./IServer.h \
-  ./IPassiveQueue.h \
-  ./Server.h \
   ./Job_m.h \
+  ./Job.h \
+  ./IServer.h \
+  ./QueueingDefs.h \
+  ./IPassiveQueue.h \
   ./SelectionStrategies.h \
-  ./Job.h
+  ./Server.h
 $O/Sink.o: Sink.cc \
   ./QueueingDefs.h \
+  ./Sink.h \
   ./Job.h \
-  ./Job_m.h \
-  ./Sink.h
+  ./Job_m.h
 $O/Source.o: Source.cc \
-  ./QueueingDefs.h \
-  ./Source.h \
   ./Job_m.h \
-  ./Job.h
+  ./Source.h \
+  ./Job.h \
+  ./QueueingDefs.h

@@ -117,7 +117,7 @@ depend:
 $O/AbstractFifo.o: AbstractFifo.cc \
   ./AbstractFifo.h
 $O/Fifo.o: Fifo.cc \
-  ./Fifo.h \
-  ./AbstractFifo.h
+  ./AbstractFifo.h \
+  ./Fifo.h
 $O/Sink.o: Sink.cc
 $O/Source.o: Source.cc

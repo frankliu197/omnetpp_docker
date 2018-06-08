@@ -116,13 +116,13 @@ depend:
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/HCGenerator.o: HCGenerator.cc \
-  ./HCGenerator.h \
-  ./HCPacket_m.h
+  ./HCPacket_m.h \
+  ./HCGenerator.h
 $O/HCPacket_m.o: HCPacket_m.cc \
   ./HCPacket_m.h
 $O/HCRouter.o: HCRouter.cc \
-  ./HCRouter.h \
-  ./HCPacket_m.h
+  ./HCPacket_m.h \
+  ./HCRouter.h
 $O/HCSink.o: HCSink.cc \
   ./HCSink.h \
   ./HCPacket_m.h

@@ -41,9 +41,9 @@ PATH: /snap/bin
 PATH: /usr/lib/jvm/java-8-oracle/bin
 PATH: /usr/lib/jvm/java-8-oracle/db/bin
 PATH: /usr/lib/jvm/java-8-oracle/jre/bin
+PATH: /home/frankliu197/omnetpp_docker/omnetpp-4.6/bin
 PATH: /home/frankliu197/Programming Projects/Convienience_Script/bin
-PATH: /home/frankliu197/omnet_workspace/omnetpp-4.6/bin
-PATH: /home/frankliu197/test/omnetpp-4.6/bin
+PATH: /home/frankliu197/omnetpp_docker/omnetpp-4.6/bin
 
 
 ## ----------- ##
@@ -191,7 +191,7 @@ configure:3633: checking if shared libs need -fPIC
 configure:3658: result: yes
 configure:3710: checking for dlopen with CFLAGS="" LIBS=""
 configure:3724: g++ -o conftest    conftest.cpp  >&5
-/tmp/ccS1qPoG.o: In function `main':
+/tmp/ccj7konV.o: In function `main':
 conftest.cpp:(.text+0xf): undefined reference to `dlopen'
 collect2: error: ld returned 1 exit status
 configure:3724: $? = 1
@@ -7539,7 +7539,7 @@ configure:4415: $? = 0
 configure:4416: result: yes
 configure:4514: checking for dlopen with CFLAGS="" LIBS=""
 configure:4528: g++ -o conftest     -Wl,-rpath,$(OMNETPP_LIB_DIR) -Wl,-rpath,. conftest.cpp  >&5
-/tmp/ccdZr2Qf.o: In function `main':
+/tmp/ccsxAvXt.o: In function `main':
 conftest.cpp:(.text+0xf): undefined reference to `dlopen'
 collect2: error: ld returned 1 exit status
 configure:4528: $? = 1
@@ -7872,23 +7872,23 @@ MYPWD='pwd'
 NEDTOOL='nedtool'
 NO_TCL=''
 OBJEXT='o'
-OMNETPP_BIN_DIR='/home/frankliu197/omnet_workspace/omnetpp-4.6/bin'
+OMNETPP_BIN_DIR='/home/frankliu197/omnetpp_docker/omnetpp-4.6/bin'
 OMNETPP_BUILDID='141202-f785492'
-OMNETPP_DOC_DIR='/home/frankliu197/omnet_workspace/omnetpp-4.6/doc'
+OMNETPP_DOC_DIR='/home/frankliu197/omnetpp_docker/omnetpp-4.6/doc'
 OMNETPP_EDITION='Academic Public License -- NOT FOR COMMERCIAL USE'
-OMNETPP_IMAGE_PATH='./bitmaps;./images;/home/frankliu197/omnet_workspace/omnetpp-4.6/images'
-OMNETPP_INCL_DIR='/home/frankliu197/omnet_workspace/omnetpp-4.6/include'
-OMNETPP_LIB_DIR='/home/frankliu197/omnet_workspace/omnetpp-4.6/lib'
-OMNETPP_OUT_DIR='/home/frankliu197/omnet_workspace/omnetpp-4.6/out'
+OMNETPP_IMAGE_PATH='./bitmaps;./images;/home/frankliu197/omnetpp_docker/omnetpp-4.6/images'
+OMNETPP_INCL_DIR='/home/frankliu197/omnetpp_docker/omnetpp-4.6/include'
+OMNETPP_LIB_DIR='/home/frankliu197/omnetpp_docker/omnetpp-4.6/lib'
+OMNETPP_OUT_DIR='/home/frankliu197/omnetpp_docker/omnetpp-4.6/out'
 OMNETPP_PRODUCT='OMNeT++'
 OMNETPP_RELEASE='omnetpp-4.6'
-OMNETPP_ROOT='/home/frankliu197/omnet_workspace/omnetpp-4.6'
-OMNETPP_SAMPLES_DIR='/home/frankliu197/omnet_workspace/omnetpp-4.6/samples'
-OMNETPP_SRC_DIR='/home/frankliu197/omnet_workspace/omnetpp-4.6/src'
-OMNETPP_TEST_DIR='/home/frankliu197/omnet_workspace/omnetpp-4.6/test'
-OMNETPP_TKENV_DIR='/home/frankliu197/omnet_workspace/omnetpp-4.6/src/tkenv'
-OMNETPP_UI_DIR='/home/frankliu197/omnet_workspace/omnetpp-4.6/ui'
-OMNETPP_UTILS_DIR='/home/frankliu197/omnet_workspace/omnetpp-4.6/src/utils'
+OMNETPP_ROOT='/home/frankliu197/omnetpp_docker/omnetpp-4.6'
+OMNETPP_SAMPLES_DIR='/home/frankliu197/omnetpp_docker/omnetpp-4.6/samples'
+OMNETPP_SRC_DIR='/home/frankliu197/omnetpp_docker/omnetpp-4.6/src'
+OMNETPP_TEST_DIR='/home/frankliu197/omnetpp_docker/omnetpp-4.6/test'
+OMNETPP_TKENV_DIR='/home/frankliu197/omnetpp_docker/omnetpp-4.6/src/tkenv'
+OMNETPP_UI_DIR='/home/frankliu197/omnetpp_docker/omnetpp-4.6/ui'
+OMNETPP_UTILS_DIR='/home/frankliu197/omnetpp_docker/omnetpp-4.6/src/utils'
 OMNETPP_VERSION='4.6'
 PACKAGE_BUGREPORT=''
 PACKAGE_NAME=''

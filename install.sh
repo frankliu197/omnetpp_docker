@@ -2,7 +2,9 @@
 #
 # @author frankliu197
 # 
-# Run this install file with sudo . install.sh
+# Run this install file with:
+#    $ . install.sh
+# You will need sudo previleges
 # 
 # This installation file will follow through steps 2 - 4 of the INSTALL.txt on MacOS, Mandrake, Debian and RedHat Distributions
 # 
@@ -12,8 +14,6 @@ set -e
 
 #Contains important messages from each section of the code to print at the end as an important message
 message="IMPORTANT: "
-
-#check if sudo was used to execute this program sudo -n true || { echo "You need sudo permissions to execute this program"; exit 2; }
 
 ###
 # Find the OS of the computer and set its package manager and dependencies accordingly
@@ -112,37 +112,6 @@ if [ -n "$ins" ]; then
   message="$message to your computer."
 fi
 
-
-function unistall_dependencies {
-  #Uninstalls all the dependencies in the array dependencies if the user wishes to
-  #param: NONE
-  #return: 0 (No meaning)
-
-  #loops through all the dependencies and adds all unistalled dependencies to ins
-  ins()
-  for dep in "${dependencies[@]}"; do
-    if [ -n $(which $dep) ]; then
-      sudo apt-get -qq --purge remove $dep
-      echo Unistalling $dep...
-      ins+=$dep
-    fi
-  done
-    
-  #print message of depencies uninstalled (this is based on the array ins)
-  #Format: We have uninstalled dependencies: ins[0], ins[1] ... and ins[n] to your computer.
-  if [ -n "$ins" ]; then
-    message="$message\nWe have uninstalled dependencies: "
-      
-    #means for i in 0 to n - 2
-    for i in "${ins[@]::${#ins[@]}-1}"; do
-      message="$message $i, "
-    done
-    message="$message ${ins[${#ins[@]} - 1]}."
-    message="$message from your computer."
-  fi
-}
-
-
 ###
 # Adds path to bin if it is not contained in bin. 
 #
@@ -176,7 +145,7 @@ function refresh_path {
 
 function add_path {
   #Note that the path added in must be escaped or an error will occur with sourcing the file
-  echo -e "\nRequired for omnetpp installation" >> ~/.bashrc
+  echo -e "\n#Required for omnetpp installation" >> ~/.bashrc
   echo -e "export PATH=\$PATH:$(echo $PWD| sed -e 's/[\& ]/\\&/g')/$1" >> ~/.bashrc
   message="$message \nAdded $PWD/$1 to your PATH through .bashrc."
 }

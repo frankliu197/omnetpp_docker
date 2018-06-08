@@ -427,7 +427,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/frankliu197/omnet_workspace/omnetpp-4.6'
+ac_pwd='/home/frankliu197/omnetpp_docker/omnetpp-4.6'
 srcdir='.'
 test -n "$AWK" || AWK=awk
 # The default lists apply if the user does not specify any file.
@@ -589,7 +589,7 @@ S["JAVA_LIBS"]="-L/usr/lib/jvm/java-8-oracle/jre/lib/i386/client -Wl,-rpath,/usr
 S["JAVA_CFLAGS"]="-fno-strict-aliasing -I/usr/lib/jvm/java-8-oracle/include -I/usr/lib/jvm/java-8-oracle/include/linux"
 S["WITH_PARSIM"]="yes"
 S["WITH_NETBUILDER"]="yes"
-S["OMNETPP_TKENV_DIR"]="/home/frankliu197/omnet_workspace/omnetpp-4.6/src/tkenv"
+S["OMNETPP_TKENV_DIR"]="/home/frankliu197/omnetpp_docker/omnetpp-4.6/src/tkenv"
 S["EMBED_TCL_CODE"]="yes"
 S["ALL_ENV_LIBS"]="$(TKENV_LIBS) $(CMDENV_LIBS)"
 S["JNILIBS_IF_POSSIBLE"]="missing-dependency"
@@ -644,18 +644,18 @@ S["WHOLE_ARCHIVE_OFF"]="-Wl,--no-whole-archive"
 S["WHOLE_ARCHIVE_ON"]="-Wl,--whole-archive"
 S["CFLAGS_RELEASE"]=" -O2 -DNDEBUG=1 -fPIC  -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DWITH_PARSIM -DWITH_NETBUILDER"
 S["CFLAGS_DEBUG"]=" -g -Wall -fPIC  -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DWITH_PARSIM -DWITH_NETBUILDER"
-S["OMNETPP_TEST_DIR"]="/home/frankliu197/omnet_workspace/omnetpp-4.6/test"
-S["OMNETPP_SAMPLES_DIR"]="/home/frankliu197/omnet_workspace/omnetpp-4.6/samples"
-S["OMNETPP_DOC_DIR"]="/home/frankliu197/omnet_workspace/omnetpp-4.6/doc"
-S["OMNETPP_UTILS_DIR"]="/home/frankliu197/omnet_workspace/omnetpp-4.6/src/utils"
-S["OMNETPP_UI_DIR"]="/home/frankliu197/omnet_workspace/omnetpp-4.6/ui"
-S["OMNETPP_SRC_DIR"]="/home/frankliu197/omnet_workspace/omnetpp-4.6/src"
-S["OMNETPP_IMAGE_PATH"]="./bitmaps;./images;/home/frankliu197/omnet_workspace/omnetpp-4.6/images"
-S["OMNETPP_LIB_DIR"]="/home/frankliu197/omnet_workspace/omnetpp-4.6/lib"
-S["OMNETPP_OUT_DIR"]="/home/frankliu197/omnet_workspace/omnetpp-4.6/out"
-S["OMNETPP_INCL_DIR"]="/home/frankliu197/omnet_workspace/omnetpp-4.6/include"
-S["OMNETPP_BIN_DIR"]="/home/frankliu197/omnet_workspace/omnetpp-4.6/bin"
-S["OMNETPP_ROOT"]="/home/frankliu197/omnet_workspace/omnetpp-4.6"
+S["OMNETPP_TEST_DIR"]="/home/frankliu197/omnetpp_docker/omnetpp-4.6/test"
+S["OMNETPP_SAMPLES_DIR"]="/home/frankliu197/omnetpp_docker/omnetpp-4.6/samples"
+S["OMNETPP_DOC_DIR"]="/home/frankliu197/omnetpp_docker/omnetpp-4.6/doc"
+S["OMNETPP_UTILS_DIR"]="/home/frankliu197/omnetpp_docker/omnetpp-4.6/src/utils"
+S["OMNETPP_UI_DIR"]="/home/frankliu197/omnetpp_docker/omnetpp-4.6/ui"
+S["OMNETPP_SRC_DIR"]="/home/frankliu197/omnetpp_docker/omnetpp-4.6/src"
+S["OMNETPP_IMAGE_PATH"]="./bitmaps;./images;/home/frankliu197/omnetpp_docker/omnetpp-4.6/images"
+S["OMNETPP_LIB_DIR"]="/home/frankliu197/omnetpp_docker/omnetpp-4.6/lib"
+S["OMNETPP_OUT_DIR"]="/home/frankliu197/omnetpp_docker/omnetpp-4.6/out"
+S["OMNETPP_INCL_DIR"]="/home/frankliu197/omnetpp_docker/omnetpp-4.6/include"
+S["OMNETPP_BIN_DIR"]="/home/frankliu197/omnetpp_docker/omnetpp-4.6/bin"
+S["OMNETPP_ROOT"]="/home/frankliu197/omnetpp_docker/omnetpp-4.6"
 S["OMNETPP_EDITION"]="Academic Public License -- NOT FOR COMMERCIAL USE"
 S["OMNETPP_BUILDID"]="141202-f785492"
 S["OMNETPP_VERSION"]="4.6"

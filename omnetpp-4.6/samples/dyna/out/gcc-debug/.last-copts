@@ -1,1 +1,1 @@
--g -Wall -fPIC  -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DWITH_PARSIM -DWITH_NETBUILDER -DAUTOIMPORT_NAMESPACE -I. -Irealtime -I/home/frankliu197/omnet_workspace/omnetpp-4.6/include
+-g -Wall -fPIC  -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DWITH_PARSIM -DWITH_NETBUILDER -DAUTOIMPORT_NAMESPACE -I. -Irealtime -I/home/frankliu197/omnetpp_docker/omnetpp-4.6/include

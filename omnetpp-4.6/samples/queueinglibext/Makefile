@@ -115,6 +115,6 @@ depend:
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/SinkExt.o: SinkExt.cc \
-  ../queueinglib/Sink.h \
   ./SinkExt.h \
+  ../queueinglib/Sink.h \
   ../queueinglib/QueueingDefs.h

@@ -86,9 +86,9 @@ for dep in "${dependencies[@]}"; do
     echo Unistalling $dep...
     sudo $pm -qq --purge remove $dep 
     if [ $? -eq 0 ]; then
-      unins+=$dep
+      unins+="$dep "
     else
-      nc+=$dep
+      nc+="$dep "
     fi
   fi
 done
@@ -205,16 +205,23 @@ function check_path {
 
       ###THIS PLACE IS WHERE IT BECOMES SLIGHTLY UNSAFE ALTHOUGH SHOULD BE FOOLPROOF ALMOST ALL THE TIME###
       #checks if it is exported with another path (assumes omnet at the end of path) 
-      force_delete_path "s@:$new_pwd/$1\(/\|\)$Q\s*\$@@" 
-      force_delete_path "s@:$new_dir/$1\(/\|\)$Q\s*\$@@"
+      force_delete_path "s@:$new_pwd/$1\(/\|\)\s*\$@@" 
+      force_delete_path "s@:$new_dir/$1\(/\|\)\s*\$@@"
+      force_delete_path "s@:$new_pwd/$1\(/\|\)\"\s*\$@\"@" 
+      force_delete_path "s@:$new_dir/$1\(/\|\)\"\s*\$@\"@"
 
       #same as above but assumes amnet in the middle of path
       force_delete_path "s@:$new_pwd/$1\(/\|\):@:@" 
       force_delete_path "s@:$new_dir/$1\(/\|\):@:@"
 
       #same as above but assmes it is in at the beginning
-      force_delete_path "s@$Q$new_pwd/$1\(/\|\):@@" 
-      force_delete_path "s@$Q$new_dir/$1\(/\|\):@@"
+      force_delete_path "s@$new_pwd/$1\(/\|\):@@" 
+      force_delete_path "s@$new_dir/$1\(/\|\):@@"
+      force_delete_path "s@\"$new_pwd/$1\(/\|\):@\"@" 
+      force_delete_path "s@\"$new_dir/$1\(/\|\):@\"@"
+
+      #if the line is only export PATH=$PATH, delete it
+      force_delete_path "\@^\s*export PATH=$Q\$PATH$Q\s*\$@d"
 
       refresh_path
       if path_contains $1; then

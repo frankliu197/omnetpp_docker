@@ -93,7 +93,7 @@ for dep in "${dependencies[@]}"; do
   if [ -z $(which $dep) ]; then
     echo Currently installing $dep...
     sudo $pm -qq install -y $dep
-    ins+="$dep"
+    ins+="$dep "
     echo $dep has been installed
   fi
 done

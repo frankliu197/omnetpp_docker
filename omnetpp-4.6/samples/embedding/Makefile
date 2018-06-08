@@ -118,7 +118,7 @@ $O/main.o: main.cc
 $O/model/AbstractFifo.o: model/AbstractFifo.cc \
   model/AbstractFifo.h
 $O/model/Fifo.o: model/Fifo.cc \
-  model/AbstractFifo.h \
-  model/Fifo.h
+  model/Fifo.h \
+  model/AbstractFifo.h
 $O/model/Sink.o: model/Sink.cc
 $O/model/Source.o: model/Source.cc

@@ -115,17 +115,17 @@ depend:
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/ChannelController.o: ChannelController.cc \
+  ./ChannelController.h \
   ./KmlHttpServer.h \
-  ./KmlUtil.h \
-  ./ChannelController.h
+  ./KmlUtil.h
 $O/KmlHttpServer.o: KmlHttpServer.cc \
-  ./KmlHttpServer.h \
-  ./SocketRTScheduler.h
+  ./SocketRTScheduler.h \
+  ./KmlHttpServer.h
 $O/KmlUtil.o: KmlUtil.cc \
   ./KmlUtil.h
 $O/MobileNode.o: MobileNode.cc \
-  ./ChannelController.h \
   ./KmlUtil.h \
-  ./KmlHttpServer.h
+  ./KmlHttpServer.h \
+  ./ChannelController.h
 $O/SocketRTScheduler.o: SocketRTScheduler.cc \
   ./SocketRTScheduler.h

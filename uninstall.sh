@@ -6,7 +6,6 @@
 # 
 # It will unistall all the dependencies if you choose to unistall it 
 
-set -e
 
 read -p 'Note that this might now work if you do not use a Debian distribution. Press any button to continue or CTRL-c to cancel.' o
 #Contains important messages from each section of the code to print at the end as an important message
@@ -80,7 +79,6 @@ test "$OS" == "$mac" && ! -d "$MAC_BIN" && { echo "Are you sure you installed Om
 ###
 unins=() #List of unistalled dependencies
 nc=()    #List of installed dependencies
-set +e
 for dep in "${dependencies[@]}"; do
   if [ -n $(which $dep) ]; then
     echo Unistalling $dep...
@@ -92,7 +90,6 @@ for dep in "${dependencies[@]}"; do
     fi
   fi
 done
-set -e
   
 #print message of depencies uninstalled (this is based on the array ins)
 #Format: We have uninstalled dependencies: ins[0], ins[1] ... and ins[n] to your computer.
@@ -139,14 +136,12 @@ function refresh_path {
   #the script must be interactive for source ~/.bashrc to work, and set +e must be written (unknown reasons)
   export PATH=$DEFAULT_PATH
   set -i
-  set +e
   source /etc/profile
   test -f ~/.bash_profile && source ~/.bash_profile
   test -f ~/.bash_login && source ~/.bash_login
   test -f ~/.profile && source ~/.profile
   test -f ~/.bashrc && source ~/.bashrc
   set +i
-  set -e
 }
 
 function force_delete_path {

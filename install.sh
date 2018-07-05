@@ -10,7 +10,6 @@
 # 
 #
 
-set -e
 
 #Contains important messages from each section of the code to print at the end as an important message
 message="IMPORTANT: "
@@ -81,9 +80,7 @@ test "$OS" == "$mac" && ! -d "$MAC_BIN" && { echo "Are you sure you installed Om
 if [ "$OS" == "$debian" ]; then
   #Update package managers for Debian. Note that apt-get update almost always returns an error thus set +e 
   echo Currently excecuting apt-get update...
-  set +e
   sudo apt-get -qq update -y
-  set -e
 fi
 
 #install each dependency in the list and if installed, add the dependency name to ins
@@ -133,14 +130,12 @@ function refresh_path {
   #the script must be interactive for source ~/.bashrc to work, and set +e must be written (unknown reasons)
   export PATH=$DEFAULT_PATH
   set -i
-  set +e
   source /etc/profile
   test -f ~/.bash_profile && source ~/.bash_profile
   test -f ~/.bash_login && source ~/.bash_login
   test -f ~/.profile && source ~/.profile
   test -f ~/.bashrc && source ~/.bashrc
   set +i
-  set -e
 }
 
 function add_path {
